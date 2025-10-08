@@ -20,14 +20,15 @@ def get_numbers_ticket(min, max, quantity) :
     return numbers
 
 
+
 while True :
-    min=int(input('Введіть min- мінімальне можливе число у наборі (не менше 1 але менше 1000) : '))
+    min=int(input(' Введіть min- мінімальне можливе число у наборі (не менше 1 але менше 1000) : '))
     if 1<=min<1000:
         break 
     else:
         print(f"------Ви помилились та ввели min= {min}")
 while True :
-    max=int(input(f"Введіть max- максимальне можливе число у наборі (не більше 1000) але більше за min= {min} : " ))
+    max=int(input(f" Введіть max- максимальне можливе число у наборі (не більше 1000) але більше за min= {min} : " ))
     if min< max <=1000:
         break 
     else:
