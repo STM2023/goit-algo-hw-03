@@ -2,7 +2,6 @@
 import re # імпортуємо модуль для роботи з регулярними виразами 
 
 
-
 def normalize_phone(raw_numbers) :
         
     formatted_phone= re.sub(r"[^\d+]", r"",raw_numbers)  # Видаляємо всі символи, крім цифр і "+"
@@ -20,7 +19,8 @@ def normalize_phone(raw_numbers) :
 
 
 
-raw_number = input("Введіть номер телефону : ")
+
+raw_number = input(" Введіть номер телефону : ")
 
 sanitized_number = normalize_phone(raw_number) 
 print("Нормалізований номер телефону для SMS-розсилки:", sanitized_number)
