@@ -3,18 +3,20 @@ import re
 
 def get_days_from_today(date):
      
-     today = datetime.today().date()  #поточна дата
-     try:
-         date_n=datetime.strptime(date,"%Y-%m-%d").date() # введена дата
-     except ValueError:
-         print("Error!!! Введено невірні дані!")
-     return  (today-date_n).days 
+    today = datetime.today().date()  #поточна дата
+    try:
+        date_n=datetime.strptime(date,"%Y-%m-%d").date() # введена дата
+        return  (today-date_n).days 
+    except Exception as e:
+        print(f"Error!!! Введено невірні дані!: {e}")
+        return 0
 
 
 
 
-while True:
-    date_string = input("Введіть дату у форматі 'РРРР-ММ-ДД' : ")
+date_string = input("Введіть дату у форматі 'РРРР-ММ-ДД' : ")
+'''
+#while True:
     match = re.search(r"(\d{4})-(\d{2})-(\d{2})", date_string)
     if match:
         date_year = int(match.group(1))
@@ -28,6 +30,7 @@ while True:
                 break
 
     print("----- Ви помилились та ввели :", date_string)
+'''
       
 diff_date = get_days_from_today(date_string)
 print(f"Різниця між поточною датою та заданою датою = {diff_date}")
