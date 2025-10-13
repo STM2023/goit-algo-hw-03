@@ -1,7 +1,17 @@
 from random import randint # Імпортуємо функцію, для генерування числа
 
 def get_numbers_ticket(min, max, quantity) :
+
     numbers=[]
+    if 1>min or min >1000:
+        print(f"------Введено невірне значення min= {min}")
+        return numbers
+    if min>max or max >1000:
+        print(f"------Введено невірне значення max= {max}")
+        return numbers
+    if 0>=quantity or quantity >max:
+        print(f"------Введено невірне значення quantity= {quantity}")
+        return numbers    
     k=0
     while k< quantity :
         k +=1
@@ -21,25 +31,12 @@ def get_numbers_ticket(min, max, quantity) :
 
 
 
-while True :
-    min=int(input(' Введіть min- мінімальне можливе число у наборі (не менше 1 але менше 1000) : '))
-    if 1<=min<1000:
-        break 
-    else:
-        print(f"------Ви помилились та ввели min= {min}")
-while True :
-    max=int(input(f" Введіть max- максимальне можливе число у наборі (не більше 1000) але більше за min= {min} : " ))
-    if min< max <=1000:
-        break 
-    else:
-        print(f"------Ви помилились та ввели max= {max}")    
+min=int(input(' Введіть min- мінімальне можливе число у наборі (не менше 1 але менше 1000) : '))
 
-while True :       
-    quantity=int(input(f'Введіть  кількість чисел, які потрібно вибрати (значення між {min} і {max}) : '))
-    if min< quantity< max:
-        break 
-    else:
-        print(f"------Ви помилились та ввели quantity= {quantity}")  
+max=int(input(f" Введіть max- максимальне можливе число у наборі (не більше 1000) але більше за min= {min} : " ))
+ 
+quantity=int(input(f'Введіть  кількість чисел, які потрібно вибрати  : '))
+
 
 lottery_numbers = get_numbers_ticket(min, max, quantity)
 print("Ваші унікальні лотерейні числа:", lottery_numbers)
