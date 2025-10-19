@@ -9,7 +9,7 @@ def get_days_from_today(date):
         return  (today-date_n).days 
     except Exception as e:
         print(f"Error!!! Введено невірні дані!: {e}")
-        return 0
+        return None
 
 
 
