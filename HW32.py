@@ -9,24 +9,29 @@ def get_numbers_ticket(min, max, quantity) :
     if min>max or max >1000:
         print(f"------Введено невірне значення max= {max}")
         return numbers
-    if 0>=quantity or quantity >max:
+    if 0>=quantity or quantity >max or (max-min)< quantity:
         print(f"------Введено невірне значення quantity= {quantity}")
-        return numbers    
-    k=0
-    while k< quantity :
-        k +=1
-        goal = randint(min, max) # генеруємо число від min до max
-        numbers.append(goal)  
-    print(f"список до сортування та перевірки на унікальність {numbers}")
-   
-    len_numbers=len(numbers) # длина списка
-    m_numbers=set(numbers)  # перетворэмо список у множину  
-    m_len=len(m_numbers)    # длина множини
-    numbers=list(m_numbers) # перетвор знову множину  у список 
-    numbers.sort()     
-    print(f"список після перетворення у множину та після сортування  {numbers}")
-    if len_numbers!=m_len : 
-        numbers=[]          # не уникальные элементы-формируем пустой список
+        return numbers 
+    l=1
+    while True : 
+        print (f'спроба № {l}') 
+        k=0
+        numbers=[]
+        while k< quantity :
+            k +=1
+            goal = randint(min, max) # генеруємо число від min до max
+            numbers.append(goal)  
+        print(f"список до сортування та перевірки на унікальність {numbers}")
+        
+        len_numbers=len(numbers) # длина списка
+        m_numbers=set(numbers)  # перетворэмо список у множину  
+        m_len=len(m_numbers)    # длина множини
+        numbers=list(m_numbers) # перетвор знову множину  у список 
+        numbers.sort()     
+        print(f"список після перетворення у множину та після сортування  {numbers}")
+        if len_numbers==m_len : 
+            break #numbers=[]          # не уникальные элементы-формируем пустой список
+        l +=1
     return numbers
 
 
